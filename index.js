@@ -26,19 +26,29 @@ function correctQuestions() {
     rightQuestions = whichQuestion + 1;
     return rightQuestions + "/" + questions.length;
 }
+function correct() {
+    result.textContent = "Correct!";
+            console.log("correct")
+}
+function incorrect() {
+    if(result.textContent === "Inorrect!") {
+        result.textContent += "!";
+    } else {
+        result.textContent = "Inorrect!"
+    }
+    console.log("incorrect")
+}
 
 function checkAnswer(rightAnswer) {
     if (questionText.textContent == questions.slice(-1) && answer.value.trim().toUpperCase() == rightAnswer.toUpperCase()) {
         submitText.textContent = "Reset";
         subBtnStatement = "reset";
         questionText.textContent = "You have done all questions";
-        result.textContent = "Correct!";
-        console.log("correct")
+        correct()
         questionLeft.textContent = correctQuestions();
     } else {
         if (answer.value.trim().toUpperCase() == rightAnswer.toUpperCase()) {
-            result.textContent = "Correct!";
-            console.log("correct")
+            correct()
             subBtnStatement = "next";
             submitText.textContent = "Next";
             questionLeft.textContent = correctQuestions();
@@ -46,8 +56,7 @@ function checkAnswer(rightAnswer) {
             result.textContent = "Type your answer";
             console.log("no answer")
         } else { 
-            result.textContent = "Incorrect!";
-            console.log("incorrect")
+            incorrect()
         }
     }
 }
