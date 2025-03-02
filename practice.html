@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/f928a7295a.js" crossorigin="anonymous"></script>
     <title>Website</title>
 </head>
 <body>
-    <header id="topHeader">title</header>
+    <header id="topHeader">Title</header>
     <div class="leftBar" id="leftBar">
         <a href="index.html" class="leftBtns">Home</a>
         <a href="practice.html" class="leftBtns">Test</a>
@@ -16,8 +17,15 @@
 
     <main class="mainCont">
         <div id="questionBox" class="questionBox">
-            <label id="question">Somthing went wrong</label> <br> <br>
-            <input type="text" id="answer"> <button id="subBtn"><p>Submit</p></button><br>
+            <span>
+                <label id="question" for="answer">...loading question</label>
+                <br> <br>
+                <input type="text" id="answer" autocomplete="off">
+                <button type="submit" id="subBtn"><p id="submitText">Submit</p></button> <br>
+                <p id="questionLeft"></p>
+                <p id="timer"></p>
+                <p id="result"></p>
+            </span>
         </div>
-    </main>
+    </main> 
     <script src="index.js"></script>
