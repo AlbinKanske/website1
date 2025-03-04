@@ -10,7 +10,7 @@ body {
     font-weight: bold;
     color: black;
     padding-left: 20px;
-    -webkit-text-stroke: 2px black;
+    -webkit-text-stroke: 2px white;
 }
 button[class="fa-solid fa-bars"]{
     color: rgb(23, 71, 134);
