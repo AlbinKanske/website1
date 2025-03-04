@@ -10,10 +10,11 @@ const timerText = document.getElementById("timer")
 let whichQuestion = 0;
 let subBtnStatement = "submit";
 
-const rightAnswers = ["ja", "popcorn", "Pizza"]
+const rightAnswers = ["ja", "popcorn", "Pizza", "Lord of the rings"]
 const questions = ["Is a hot dog a sandwich?",
                     "What is your go-to movie theater snack?",
-                    "Pizza or Tacos?"] 
+                    "Pizza or Tacos?",
+                    "What is the best movie?"] 
 
 
 if (rightAnswers.length !== questions.length) {
