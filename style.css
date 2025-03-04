@@ -4,13 +4,13 @@ body {
     overflow: hidden;
 }
 #topHeader {
-    background-color: #18706c;
+    background-color: #67ce7e;
     border-bottom: 3px solid black;
     font-size: 5em;
     font-weight: bold;
     color: black;
     padding-left: 20px;
-    -webkit-text-stroke: 1px white;
+    -webkit-text-stroke: 1px #Cffff6;
 }
 button[class="fa-solid fa-bars"]{
     color: rgb(23, 71, 134);
