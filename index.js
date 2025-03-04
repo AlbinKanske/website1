@@ -10,54 +10,49 @@ const timerText = document.getElementById("timer")
 let whichQuestion = 0;
 let subBtnStatement = "submit";
 
-const rightAnswers = ["ja", "popcorn", "Pizza", "Lord of the rings"]
-const questions = ["Is a hot dog a sandwich?",
-                    "What is your go-to movie theater snack?",
-                    "Pizza or Tacos?",
-                    "What is the best movie?"] 
-
-
-if (rightAnswers.length !== questions.length) {
-    console.error("something went wrong. not same amount of questions as Answers");
-}
+const Questions = [
+    {type: "write", question: "Is a hot dog a sandwich?", answer: "ja"},
+    {type: "write", question: "What is your go-to movie theater snack?", answer: "popcorn"},
+    {type: "write", question: "Pizza or Tacos?", answer: "Pizza"},
+    {type: "write", question: "What is the best movie?", answer: "Lord of the rings"}
+]
 
 let rightQuestions = 0;
 
 function correctQuestions() {
     rightQuestions = whichQuestion + 1;
-    return rightQuestions + "/" + questions.length;
+    return rightQuestions + "/" + Questions.length;
 }
 function correct() {
     result.textContent = "Correct!";
-            console.log("correct")
+    console.log("correct question: " + (whichQuestion + 1));
 }
 function incorrect() {
-    if(result.textContent === "Inorrect!") {
+    if(result.textContent === "Incorrect!") {
         result.textContent += "!";
     } else {
-        result.textContent = "Inorrect!"
+        result.textContent = "Incorrect!"
     }
-    console.log("incorrect")
+    console.log("incorrect");
 }
 
 function checkAnswer(rightAnswer) {
-    if (questionText.textContent == questions.slice(-1) && answer.value.trim().toUpperCase() == rightAnswer.toUpperCase()) {
+    if (questionText.textContent == Questions[Questions.length - 1].question && answer.value.trim().toUpperCase() == rightAnswer.toUpperCase()) {
         submitText.textContent = "Reset";
         subBtnStatement = "reset";
         questionText.textContent = "You have done all questions";
-        correct()
+        correct();
         questionLeft.textContent = correctQuestions();
     } else {
         if (answer.value.trim().toUpperCase() == rightAnswer.toUpperCase()) {
-            correct()
+            correct();
             subBtnStatement = "next";
             submitText.textContent = "Next";
             questionLeft.textContent = correctQuestions();
         } else if (answer.value == "") {
             result.textContent = "Type your answer";
-            console.log("no answer")
         } else { 
-            incorrect()
+            incorrect();
         }
     }
 }
@@ -66,13 +61,13 @@ function changeQuestion(questiontext) {
     questionText.textContent = questiontext;
 }
 
-questionText.textContent = questions[0];
+questionText.textContent = Questions[0].question;
 
-questionLeft.textContent = "0/" + questions.length;
+questionLeft.textContent = "0/" + Questions.length;
 
 subBtn.onclick = function() {
     if (subBtnStatement == "submit") {
-        checkAnswer(rightAnswers[whichQuestion]);
+        checkAnswer(Questions[whichQuestion].answer);
     } else if (subBtnStatement == "next") {
         whichQuestion++;
         answer.value = "";
@@ -80,19 +75,19 @@ subBtn.onclick = function() {
         subBtnStatement = "submit";
         submitText.textContent = "Submit";
 
-        if (whichQuestion < questions.length) {
-            changeQuestion(questions[whichQuestion]);
+        if (whichQuestion < Questions.length) {
+            changeQuestion(Questions[whichQuestion].question);
         } else {
             submitText.textContent = "Reset";
             subBtnStatement = "reset";
         }
         } else if (subBtnStatement == "reset") {
-            questionText.textContent = questions[0];
+            questionText.textContent = Questions[0].question;
             answer.value = "";
             result.textContent = "";
             whichQuestion = 0;
             subBtnStatement = "submit";
             submitText.textContent = "Submit";
-            questionLeft.textContent = "0/" + questions.length;
+            questionLeft.textContent = "0/" + Questions.length;
     }
 }
