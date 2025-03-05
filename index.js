@@ -36,7 +36,6 @@ function incorrect() {
     console.log("incorrect");
 }
 function checkMultipleAnswers(rightAnswer) {
-    let check = true
     for (let i = 0; i < rightAnswer.length; i++) {
         if (answer.value.trim().toUpperCase() === rightAnswer[i].toUpperCase()) {
             return true;
