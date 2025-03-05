@@ -14,7 +14,7 @@ const questions = [
     {type: "write", question: "Is a hot dog a sandwich?", answer: ["ja"]},
     {type: "write", question: "What is your go-to movie theater snack?", answer: ["popcorn"]},
     {type: "write", question: "Pizza or Tacos?", answer: ["Pizza"]},
-    {type: "write", question: "What is the best movie?", answer: ["Lord of the rings", "the Lord of the rings"]}
+    {type: "write", question: "What is the best movie?", answer: ["Lord of the rings", "the Lord of the rings"]},
     {type: "write", question: "What is the best game?", answer: ["Rocket league", "Minecraft", "It takes two"]}
 ]
 
