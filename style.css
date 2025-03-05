@@ -15,7 +15,7 @@ body {
 button[class="fa-solid fa-bars"]{
     color: rgb(23, 71, 134);
 }
-#title{
+#Main{
     display: inline;
     padding-left: 50px;
 }
