@@ -4,16 +4,27 @@ body {
     overflow: hidden;
 }
 #topHeader {
-    background-color: #67ce7e;
+    background-color: hsl(177, 87%, 76%);
     border-bottom: 3px solid black;
     font-size: 5em;
     font-weight: bold;
     color: black;
     padding-left: 20px;
-    -webkit-text-stroke: 1px #Cffff6;
 }
-button[class="fa-solid fa-bars"]{
-    color: rgb(23, 71, 134);
+#topHeader p{
+    display: inline;
+    color: black;
+    -webkit-text-stroke: 1px #Cffff6;
+    cursor: default;
+}
+#toggleLeftBarBtn{
+    display: inline;
+    margin-right: 10px;
+}
+#threeLinesIcon{
+    height: 60px;
+    width: auto;
+    cursor: pointer;
 }
 #Main{
     display: inline;
@@ -24,11 +35,12 @@ button[class="fa-solid fa-bars"]{
     border-right: 3px solid black;
     width: 15%;
     max-width: 400px;
-    min-width: 205px;
-    background-color: #abf1bc;
+    min-width: 210px;
+    background-color: hsl(175, 76%, 77%);
     text-align: center;
     float: left;
     height: 100vh;
+    overflow: hidden;
 }
 .leftBtns {
     font-size: 3em;
@@ -36,9 +48,10 @@ button[class="fa-solid fa-bars"]{
     text-decoration: none;
     display: block;
     padding: 0px;
+    -webkit-text-stroke: 1px hsl(0, 0%, 100%);
 }
 .leftBtns:hover {
-    background-color: #95e9aa;
+    background-color: hsla(0, 0%, 100%, 0.267);
 }
 
 .homeCont{
@@ -57,7 +70,7 @@ main{
     align-items: flex-start;
     height: 95vh;
     overflow: auto;
-    background-color: #Cffff6;
+    background-color: hsl(169, 100%, 91%);
 }
 #homeContainer{
     display: block;
@@ -70,9 +83,10 @@ main{
     display: block;
 }
 
-#questionBox {
-    width: 45%;                   
-    background-color: #abf1bc;
+#questionBox{
+    width: 45%;  
+    min-height: 500px;                 
+    background-color: hsl(175, 76%, 77%);
     font-size: 2em;
     padding: 5%;
     border: 3px solid black;
@@ -91,21 +105,25 @@ main{
     border-radius: 5px;
     font-size: 1em;
     min-width: 110px;
-    background-color: #Cffff6;
+    background-color: hsla(0, 0%, 100%, 0.900);
 }
 #subBtn{
     height: 48px;
     width: 20%;
     border: 3px solid black;
     border-radius: 5px;
-    background-color: #cfffef;
     font-size: 1em;
     padding: 0px;
     cursor: pointer;
     min-width: 110px;
+    background-color: hsla(0, 0%, 100%, 0.900);
+    margin-top: 10px;
 }
 #subBtn:hover{
-    background-color: hsl(169, 68%, 79%);
+    background-color: hsla(0, 0%, 100%, 0.600);
+}
+#subBtn:active{
+    background-color: hsla(0, 0%, 100%, 0.300);
 }
 
 #submitText{
@@ -116,4 +134,75 @@ main{
     display: flex;
     justify-content: center;
     align-items: flex-start;
+}
+#lightMode{
+    float: right;
+    margin: 20px;
+    height: 50px;
+    background-color: hsl(0, 0%, 10%);
+    font-size: 0.3em;
+    padding: 5px;
+    border: 2px solid hsl(0, 0%, 20%);
+    border-radius: 5px;
+    color: hsl(0, 0%, 85%);
+    cursor: pointer;
+}
+#lightMode:hover{
+    background-color: hsl(0, 0%, 15%);
+}
+#lightMode:active{
+    background-color: hsl(0, 0%, 20%);
+}
+#startBtn{
+    font-size: 3em;
+    padding: 30px;
+    height: 300px;
+    border: 3px solid;
+    border-radius: 50px;
+    background-color: hsl(0, 0%, 92%);
+    cursor: pointer;
+}
+#startBtn:hover{
+    background-color: hsl(0, 0%, 95%);
+}
+#startBtn:active{
+    background-color: hsl(0, 0%, 100%);
+}
+#altBox{
+    display: flex;
+    flex-wrap: wrap;
+}
+.quizalt{
+    flex: 1 0 45%;
+    height: 150px;
+    border: 2px solid black;
+    margin: 5px;
+    border-radius: 15px;
+    font-size: 1em;
+    overflow: hidden;
+    cursor: pointer;
+}
+#alt1{
+    background-color: hsl(271, 100%, 88%);
+}
+#alt1:hover{
+    background-color: hsl(270, 100%, 84%);
+}
+#alt2{
+    background-color: hsl(120, 100%, 88%)
+}
+#alt2:hover{
+    background-color: hsl(120, 100%, 84%)
+}
+#alt3{
+    background-color: hsl(39, 100%, 88%);
+}
+#alt3:hover{
+    background-color: hsl(39, 100%, 84%);
+}
+#alt4{
+    background-color: hsl(348, 100%, 88%);
+}
+#alt4:hover{
+    background-color: hsl(348, 100%, 84%);
 }
