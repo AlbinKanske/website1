@@ -4,28 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="pfp.png" type="image/png">
     <script src="https://kit.fontawesome.com/f928a7295a.js" crossorigin="anonymous"></script>
     <title>Website</title>
 </head>
 <body>
-    <header id="topHeader">Title</header>
+    <header id="topHeader">
+        <div id="toggleLeftBarBtn">
+            <img src="3lines.svg" id="threeLinesIcon">
+        </div>
+        <p>Title</p>
+        <button id="lightMode">Dark mode</button>
+    </header>
     <div class="leftBar" id="leftBar">
         <a href="index.html" class="leftBtns">Home</a>
         <a href="practice.html" class="leftBtns">Quiz</a>
-        <a href="editTest.html" class="leftBtns">Click here for free candy</a>
+        <a href="editTest.html" class="leftBtns">Edit Quiz</a>
     </div>
 
     <main class="mainCont">
         <div id="questionBox" class="questionBox">
-            <span>
-                <label id="question" for="answer">question not working</label>
+            <button id="startBtn" onclick="startQuiz()">Start the Quiz</button>
+            <span id="quiz">
+                <label id="question" for="answer">...loading question</label>
                 <br> <br>
-                <input type="text" id="answer" autocomplete="off">
-                <button type="submit" id="subBtn"><p id="submitText">Submit</p></button> <br>
+                <input type="text" id="answer" autocomplete="off" class="quizWrite">
+                
+                <div id="altBox">
+                    <button id="alt1" class="quizalt">no 1st alternative</button>
+                    <button id="alt2" class="quizalt">no 2nd alternative</button>
+                    <button id="alt3" class="quizalt">no 3rd alternative</button>
+                    <button id="alt4" class="quizalt">no 4th alternative</button>
+                </div>
+
+                <button type="submit" id="subBtn" class="quizWrite">
+                    <p id="submitText">Submit</p>
+                </button> <br>
+                
                 <p id="questionLeft"></p>
                 <p id="timer"></p>
                 <p id="result"></p>
             </span>
         </div>
     </main> 
-    <script src="index.js"></script>
+    <script type="module" src="index.js"></script>
