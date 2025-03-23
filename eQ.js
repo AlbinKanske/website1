@@ -60,7 +60,7 @@ addQuiz.addEventListener("click", () => {
 
   const quizData = { quiz: newQuiz, info: newQuizInfo };
 
-  fetch('quiz-server-node-js-git-main-albins-projects-9422bc15.vercel.app/save-quiz', {
+  fetch('quiz-server-node-js.vercel.app/save-quiz', {
       method: 'POST',
       cache: 'no-cache',
       headers: {
@@ -114,7 +114,7 @@ idText.addEventListener("keydown", event => {
 });
 
 function getQuiz(which, type) {
-  currentQuiz = fetch("quiz-server-node-js-git-main-albins-projects-9422bc15.vercel.app/quizzes", 
+  currentQuiz = fetch("quiz-server-node-js.vercel.app/quizzes", 
     { method: "GET", cache: "no-cache" })
       .then(response => response.json())
       .then(value => {
@@ -347,7 +347,7 @@ function saveQuiz() {
 
   const quizData = { quiz: currentQuiz, info: currentQuizInfo, id: id };
 
-  fetch('quiz-server-node-js-git-main-albins-projects-9422bc15.vercel.app/save-quiz', {
+  fetch('quiz-server-node-js.vercel.app/save-quiz', {
       method: 'POST',
       cache: 'no-cache',
       headers: {
