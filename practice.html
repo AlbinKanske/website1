@@ -4,27 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="pfp.png" type="image/png">
+    <link rel="icon" href="pictures/pfp.png" type="picture/png">
     <script src="https://kit.fontawesome.com/f928a7295a.js" crossorigin="anonymous"></script>
-    <title>Website</title>
+    <title>Quiz</title>
 </head>
-<body>
-    <header id="topHeader">
+<body class="backL">
+    <header id="topHeader" class="topHeaderL">
         <div id="toggleLeftBarBtn">
-            <img src="3lines.svg" id="threeLinesIcon">
+            <img src="pictures/3lines.png" id="threeLinesIcon">
         </div>
         <p>Title</p>
         <button id="lightMode">Dark mode</button>
     </header>
-    <div class="leftBar" id="leftBar">
+    <div id="leftBar" class="boxesL">
         <a href="index.html" class="leftBtns">Home</a>
         <a href="practice.html" class="leftBtns">Quiz</a>
         <a href="editTest.html" class="leftBtns">Edit Quiz</a>
     </div>
 
-    <main class="mainCont">
-        <div id="questionBox" class="questionBox">
-            <button id="startBtn" onclick="startQuiz()">Start the Quiz</button>
+    <main id="mainCont">
+        
+        <div id="questionBox" class="boxesL">
+            <h2 id="quizNameText" style="text-decoration: underline;">‎</h2>
+
+            <div id="quizIDBox">
+                <label>Enter the Quiz Name or ID:</label>
+                <input type="text" id="quizID" class="quizWrite" min="1" placeholder="#123/Quiz" style="width: 300px;"><br>
+                <p id="IDResult"></p>
+            </div>  
+            <button id="startBtn" onclick="startQuiz()">Start Quiz</button>
+
+            
             <span id="quiz">
                 <label id="question" for="answer">...loading question</label>
                 <br> <br>
@@ -48,3 +58,6 @@
         </div>
     </main> 
     <script type="module" src="index.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
