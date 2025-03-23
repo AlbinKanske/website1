@@ -1,15 +1,41 @@
-body {
+.topHeaderL{
+    background-color: hsl(177, 87%, 76%);
+}
+.topHeaderD{
+    background-color: hsl(0, 0%, 10%);
+}
+.backL{
+    background-color: hsl(169, 100%, 91%);
+    color: black;
+}
+.backD{
+    background-color: hsl(0, 0%, 6%);
+    color: white;
+}
+.boxesL{
+    background-color: hsl(175, 76%, 77%);
+    color: black;
+}
+.boxesD{
+    background-color: hsl(0, 0%, 12%);
+    color: white;
+}
+
+body{
     font-family: Verdana;
     margin: 0px;
     overflow: hidden;
+    height: 100vh;
 }
 #topHeader {
-    background-color: hsl(177, 87%, 76%);
     border-bottom: 3px solid black;
     font-size: 5em;
     font-weight: bold;
     color: black;
     padding-left: 20px;
+    position: sticky;
+    z-index: 1000;
+    top: 0px;
 }
 #topHeader p{
     display: inline;
@@ -29,6 +55,7 @@ body {
 #Main{
     display: inline;
     padding-left: 50px;
+    overflow: auto;
 }
 
 #leftBar {
@@ -36,11 +63,18 @@ body {
     width: 15%;
     max-width: 400px;
     min-width: 210px;
-    background-color: hsl(175, 76%, 77%);
     text-align: center;
     float: left;
     height: 100vh;
     overflow: hidden;
+}
+.animationLeftBar{
+    animation-name: leftBarToggle;
+    animation-duration: 0.3ms;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-play-state: running; 
+    animation-timing-function: ease-in-out;
 }
 .leftBtns {
     font-size: 3em;
@@ -54,7 +88,7 @@ body {
     background-color: hsla(0, 0%, 100%, 0.267);
 }
 
-.homeCont{
+#homeCont{
     flex-grow: 1;
     display: flex;
     justify-content: center;
@@ -62,16 +96,9 @@ body {
 }
 #homeText{
     display: inline;
+    width: 100%;
 }
 
-main{
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    height: 95vh;
-    overflow: auto;
-    background-color: hsl(169, 100%, 91%);
-}
 #homeContainer{
     display: block;
     width: 100%;
@@ -85,10 +112,11 @@ main{
 
 #questionBox{
     width: 45%;  
-    min-height: 500px;                 
-    background-color: hsl(175, 76%, 77%);
+    min-height: 500px;
     font-size: 2em;
-    padding: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
     border: 3px solid black;
     border-radius: 20px;
     margin-top: 50px;
@@ -105,7 +133,7 @@ main{
     border-radius: 5px;
     font-size: 1em;
     min-width: 110px;
-    background-color: hsla(0, 0%, 100%, 0.900);
+    background-color: hsla(0, 0%, 100%);
 }
 #subBtn{
     height: 48px;
@@ -116,31 +144,35 @@ main{
     padding: 0px;
     cursor: pointer;
     min-width: 110px;
-    background-color: hsla(0, 0%, 100%, 0.900);
+    background-color: hsla(0, 0%, 100%);
     margin-top: 10px;
 }
 #subBtn:hover{
     background-color: hsla(0, 0%, 100%, 0.600);
 }
 #subBtn:active{
-    background-color: hsla(0, 0%, 100%, 0.300);
+    background-color: hsla(0, 0%, 100%);
 }
 
 #submitText{
     display: inline;
 }
-.mainCont {
+#mainCont {
     flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    height: 95vh;
+    overflow: auto;
 }
 #lightMode{
-    float: right;
-    margin: 20px;
-    height: 50px;
+    right: 0px;
+    position: absolute;
+    margin-right: 10px;
+    margin-top: 27px;
+    height: 40px;
     background-color: hsl(0, 0%, 10%);
-    font-size: 0.3em;
+    font-size: 0.2em;
     padding: 5px;
     border: 2px solid hsl(0, 0%, 20%);
     border-radius: 5px;
@@ -156,17 +188,24 @@ main{
 #startBtn{
     font-size: 3em;
     padding: 30px;
-    height: 300px;
+    height: 200px;
     border: 3px solid;
     border-radius: 50px;
     background-color: hsl(0, 0%, 92%);
     cursor: pointer;
+    margin-top: 15px;
 }
 #startBtn:hover{
     background-color: hsl(0, 0%, 95%);
 }
 #startBtn:active{
     background-color: hsl(0, 0%, 100%);
+}
+#quizID{
+    font-size: 1em;
+    width: 100px;
+    border: 3px solid;
+    border-radius: 5px;
 }
 #altBox{
     display: flex;
@@ -205,4 +244,370 @@ main{
 }
 #alt4:hover{
     background-color: hsl(348, 100%, 84%);
+}
+#eQMain{
+    display: grid;
+    overflow: auto;
+}
+#eQBox{
+    width: 60%;
+    min-height: 300px;    
+    height: 100hv;             
+    font-size: 2em;
+    padding: 20px;
+    border: 3px solid black;
+    border-radius: 20px;
+    margin-top: 30px;
+    margin-left: 10vw;
+    text-align: center;
+    overflow: auto;
+    box-shadow: 5px 5px 10px hsla(0, 0%, 0%, 0.4);
+    display: inline-block;
+}
+#eQQuestionText{
+    width: 70%;
+    height: 40px;
+    border: 3px solid black;
+    border-radius: 5px;
+    font-size: 1em;
+    min-width: 110px;
+    background-color: hsla(0, 0%, 100%);
+}
+#eQAltsBox{
+    display: none;
+    flex-wrap: wrap;
+}
+.eQAlts{
+    flex: 1 0 45%;
+    height: 150px;
+    border: 2px solid black;
+    margin: 5px;
+    border-radius: 15px;
+    font-size: 1em;
+    overflow: hidden;
+    cursor: pointer;
+}
+.rightAnswerCheck{
+    float: right;
+    margin-right: 5px;
+    height: 39px;
+}
+.checkBtn{
+    height: 40px;
+    width: 40px;
+    display: inline;
+    margin-top: 0px;
+    border: 3px solid black;
+    border-radius: 5px;
+    background-color: hsla(0, 0%, 100%, 0.900);
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 3px;
+    font-weight: bold;
+}
+.eQAltText{
+    width: 93%;
+    margin-top: 20px;
+    border: 3px solid black;
+    border-radius: 5px;
+    font-size: 1em;
+    min-width: 110px;
+    background-color: hsla(0, 0%, 100%, 0.700);
+}
+#eQWrite{
+    display: flex;
+
+}
+#eQAnswer{
+    width: 70%;
+    height: 40px;
+    border: 3px solid black;
+    border-radius: 5px;
+    font-size: 1em;
+    min-width: 110px;
+    background-color: hsla(0, 0%, 100%);
+}
+.qTypeDropdown{
+    display: inline-block;
+}
+.qTypeDropdown #button{
+    height: 48px;
+    border: 3px solid black;
+    border-radius: 5px;
+    font-size: 1em;
+    padding: 0px;
+    cursor: pointer;
+    min-width: 110px;
+    background-color: hsla(0, 0%, 100%);
+    margin-top: 10px;
+    display: inline;
+    min-width: 200px;
+}
+.qTypeDropdown .dropDownChoices{
+    font-size: 1em;
+    background-color: white;
+    border: 3px solid black;
+    width: 250px;
+    cursor: pointer;
+}
+.qTypeDropdown .typeCont{
+    position: absolute;
+    display: none;
+    box-shadow: 3px 3px 10px hsla(0, 0%, 0%, 0.5);
+}
+.qTypeDropdown:hover .typeCont{
+    display: block;
+}
+.qTypeDropdown:hover #button{
+    background-color: hsla(0, 0%, 100%, 0.800);
+}
+.qTypeDropdown .dropDownChoices:hover{
+    background-color: hsl(180, 100%, 90%);
+}
+#questionLeftBar{
+    position: absolute;
+    display: block;
+    height: 100vh;
+    min-width: 50px;
+    margin-left: 10px;
+    width: 7%;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+    overflow-y: auto;
+}
+#questionLeftBar button{
+    font-size: 3em;
+    width: 100%;
+    margin-top: 3px;
+    background-color: hsla(0, 0%, 100%, 0.808);
+    cursor: pointer;
+    padding: 3px;
+}
+#questionLeftBar button:hover{
+    background-color: hsla(0, 0%, 100%);
+}
+.active{
+    font-weight: bold;
+    border: 4px solid;
+    background-color: hsla(0, 0%, 100%, 0.521);
+    border-radius: 3px;
+}
+#trashCan{
+    float: right;
+}
+.hidden{
+    display: none;
+}
+.inline{
+    display: inline;
+}
+#saveBtn button{
+    float: right;
+    margin-right: 30px;
+    margin-top: 10px;
+    border: 3px solid black;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px hsla(0, 0%, 0%, 0.39);
+    font-size: 1em;
+    min-width: 110px;
+    background-color: hsla(0, 0%, 100%);
+    cursor: pointer;
+}
+#saveBtn button:hover{
+    background-color: hsla(0, 0%, 100%, 0.600);
+}
+#saveBtn button:active{
+    background-color: hsla(0, 0%, 100%);
+}
+#delBtn button{
+    float: right;
+    margin-right: 30px;
+    margin-top: 10px;
+    border: 3px solid black;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px hsla(0, 0%, 0%, 0.39);
+    font-size: 1em;
+    min-width: 110px;
+    background-color: hsl(0, 86%, 60%);
+    cursor: pointer;
+}
+#delBtn button:hover{
+    background-color: hsl(0, 86%, 50%);
+}
+#delBtn button:active{
+    background-color: hsl(0, 86%, 65%);
+}
+#quizSettings{
+    position: absolute;
+    display: block;
+    height: 100vh;
+    min-width: 150px;
+    width: 18%;
+    border-left: 3px solid black;
+    float: right;
+    right: 0px;
+    z-index: 999;
+    overflow-y: auto;
+}
+.toggleRightBtn{
+    font-size: 5em;
+    width: 110px;
+    height: 95px;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    background-color: hsla(0, 0%, 100%, 0.350);
+    border: 0px;
+    border-radius: 10px;
+}
+.toggleRightBtn:hover{
+    background-color: hsla(0, 0%, 100%, 0.500);
+}
+.toggleRightBtn:active{
+    background-color: hsla(0, 0%, 100%, 0.350);
+}
+#smallRightBar{
+    position: absolute;
+    display: block;
+    height: 100vh;
+    width: 115px;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+    float: right;
+    right: 0px;
+    text-align: center;
+}
+#saveQuizBtn{
+    bottom: 0px;
+}
+#settingsContent{
+    margin-top: 65px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.settingsText{
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    font-family: sans-serif;
+}
+.settingsText text{
+    border: 3px solid black;
+    border-radius: 5px;
+}
+#quizPasswordVisibility{
+    cursor: pointer;
+}
+.setBottomBtns{
+    font-size: 1.3em;
+    width: 49%;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 2em;
+}
+#bottomBtnsCont{
+    margin-top: 15%;
+}
+
+#delQuiz{
+    background-color: hsl(0, 86%, 60%);
+    font-weight: bold;
+}
+#delQuiz:hover{
+    background-color: hsl(0, 86%, 50%);
+}
+#delQuiz:active{
+    background-color: hsl(0, 86%, 65%);
+}
+
+#saveQuizBtn{
+    background-color: hsl(0, 0%, 95%);
+}
+#saveQuizBtn:hover{
+    background-color: hsl(0, 0%, 100%);
+}
+#saveQuizBtn:active{
+    background-color: hsl(0, 0%, 93%);
+}
+.setCheckBox{
+    width: 25px;
+    height: 25px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 2px;
+    background-color: white;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+}
+#idBox{
+    width: 50%;
+    min-height: 40px;
+    border: 3px solid black;
+    border-radius: 25px;
+    font-size: 2em;
+    min-width: 300px;
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+#idText{
+    width: 300px;
+    font-size: 1em;
+    border: 3px solid;
+    border-radius: 5px;
+    background-color: hsl(0, 0%, 100%);
+    padding: 3px;
+}
+#idPassword{
+    width: 300px;
+    font-size: 1em;
+    border: 3px solid;
+    border-radius: 5px;
+    background-color: hsl(0, 0%, 100%);
+    padding: 3px;
+}
+#idBtn{
+    font-size: 1em;
+    border-radius: 10px;
+    border: 0px;
+    cursor: pointer;
+    background-color: hsla(0, 0%, 100%, 0);
+}
+#idBtn:hover{
+    text-decoration: underline;
+}
+#idpass{
+    font-size: 1em;
+    border-radius: 10px;
+    border: 0px;
+    cursor: pointer;
+    background-color: hsla(0, 0%, 100%, 0);
+}
+#idpass:hover{
+    text-decoration: underline;
+}
+#idPassVis{
+    cursor: pointer;
+}
+#createQuizBtn{
+    font-size: 1em;
+    width: 100px;
+    font-weight: bold;
+    border: 3px solid;
+    border-radius: 5px;
+    background-color: hsla(0, 0%, 100%);
+    cursor: pointer;
+}
+#createQuizBtn:hover{
+    background-color: hsla(0, 0%, 100%, 0.700);
+}
+#createQuizBtn:active{
+    background-color: hsla(0, 0%, 100%);
+}
+
+
+@keyframes leftBarToggle{
+    to{transition: translateX(-100%)}
 }
