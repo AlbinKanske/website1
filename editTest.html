@@ -4,27 +4,162 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="pfp.png" type="image/png">
-    <title>Website</title>
+    <link rel="icon" href="pictures/pfp.png" type="picture/png">
+    <script src="https://kit.fontawesome.com/f928a7295a.js" crossorigin="anonymous"></script>
+    <title>Quiz Editor</title>
 </head>
-<body>
-    <header id="topHeader">
+<body class="backL">
+    <template id="btnTemplate">
+        <button  class="Btns">
+            5
+        </button>
+    </template>
+
+    <header id="topHeader" class="topHeaderL">
         <div id="toggleLeftBarBtn">
-            <img src="3lines.svg" id="threeLinesIcon">
+            <img src="pictures/3lines.png" id="threeLinesIcon">
         </div>
         <p>Title</p>
         <button id="lightMode">Dark mode</button>
     </header>
-    <div class="leftBar" id="leftBar">
+    <div id="leftBar" class="boxesL">
         <a href="index.html" class="leftBtns">Home</a>
         <a href="practice.html" class="leftBtns">Quiz</a>
         <a href="editTest.html" class="leftBtns">Edit Quiz</a>
     </div>
+    <main style="display: flex; justify-content: center; align-items: center; padding-top: 50px;">
+        <div id="idBox" class="boxesL">
+            <label for="idText">Enter the Quiz Name or ID:</label>
+            <input type="text" min="1" id="idText" placeholder="#123/Quiz">
+            <button id="idBtn" class="idTextBox">Enter</button>
+            <br><br>
+            <span id="passBox" style="display: none;">
+                <label>Enter the password</label>
+                <input type="password" id="idPassword">
+                <i class="fa-solid fa-eye" id="idPassVis"></i> 
+                <button id="idpass">Enter</button> <br>
+                <p id="idPassResult" style="-webkit-text-stroke: 1px red; font-weight: bold; color: black">‎</p>
+                <br>
+            </span>
+            <label>Or create a new Quiz:</label>
+            <button id="createQuizBtn">+</button>
 
-    <main>
-        
+            <p id="result"></p>
+        </div>
     </main>
+    <main id="eQMain" style="display: none;">
+        <span id="questionLeftBar" class="boxesL">
+            <span id="qBtns">
+                <!-- buttons added here -->
+            </span>
+            <br>
+            <button id="plusBtn">
+                +
+            </button>
+            <br><br><br><br><br><br><br><br>
+        </span>
+        
+        <div id="eQBox" class="boxesL">
+            <label for="eQQuestionText">Question:</label>
+            <input type="text" id="eQQuestionText">
+            <label for="eQQuestionText">?</label> <br> <br>
+            
+            <label>Question Type:</label>
+            <div class="qTypeDropdown">
+                <button id="button">Write</button>
+                <div class="typeCont">
+                    <button class="dropDownChoices">Alternatives</button> <br>
+                    <button class="dropDownChoices">Write</button>
+                </div>
+            </div> <br> <br>
+
+            <div id="eQAltsBox">
+                <div id="alt1" class="eQAlts">
+                    <div class="rightAnswerCheck">
+                        <label style="color: black;">Correct:</label>
+                        <button class="checkBtn" id="check1">‎</button>
+                    </div> <br>
+                    <input type="text" class="eQAltText">
+                </div>
+                <div id="alt2" class="eQAlts">
+                    <div class="rightAnswerCheck">
+                        <label style="color: black;">Correct:</label>
+                        <button class="checkBtn" id="check2">‎</button>
+                    </div> <br>
+                    <input type="text" class="eQAltText">
+                </div>
+                <div id="alt3" class="eQAlts">
+                    <div class="rightAnswerCheck">
+                        <label style="color: black;">Correct:</label>
+                        <button class="checkBtn" id="check3">‎</button>
+                    </div> <br>
+                    <input type="text" class="eQAltText">
+                </div>
+                <div id="alt4" class="eQAlts">
+                    <div class="rightAnswerCheck">
+                        <label style="color: black;">Correct:</label>
+                        <button class="checkBtn" id="check4">‎</button>
+                    </div> <br>
+                    <input type="text" class="eQAltText">
+                </div>
+            </div>
+            
+            <div id="eQWrite">
+                <label>Correct answer: </label>
+                <input type="text" id="eQAnswer">
+            </div>
+            <div id="eQWrite" style="display: none;">
+                <label>Correct answer: </label>
+                <input type="text" id="eQAnswer2">
+            </div>
+            <div id="eQWrite" style="display: none;">
+                <label>Correct answer: </label>
+                <input type="text" id="eQAnswer3">
+            </div>
+            
+            <div id="saveBtn">
+                <button>Save</button>
+            </div>
+            <div id="delBtn">
+                <button>Detete</button>
+            </div>
+        </div> 
+        <div id="quizSettings" class="boxesL">
+            <button class="toggleRightBtn"><i id="gear" class="fa-solid fa-gear" style="color: #7c8188;"></i></button>
+            <h3 style="display: inline; font-size: 3em; margin-left: 30px; margin-right: 5px; text-decoration: underline;">Settings</h3>
+            <div id="settingsContent">
+                <p class="settingsText" id="quizId">loading...</p>
+                
+                <label for="quizName" class="settingsText">Quiz Name: </label>
+                <input type="text" id="quizName" class="settingsText"> <br>
+
+                <label for="quizPassword" class="settingsText">Password:</label>
+                <input type="password" id="quizPassword" class="settingsText">
+                <span class="settingsText"><i class="fa-solid fa-eye" id="quizPasswordVisibility"></i></span> <br>
+
+                <br>
+
+                <label class="settingsText" for="shuffAltsBtn">Shuffle Alternatives:</label>
+                <button class="setCheckBox" id="shuffAltsBtn">‎</button>
+                <br>
+                <label class="settingsText" for="shuffOrderBtn">Shuffle Question Order:</label>
+                <button class="setCheckBox" id="shuffOrderBtn">‎</button>
+                
+                
+                <div id="bottomBtnsCont">
+                    <button id="delQuiz" class="setBottomBtns">Delete Quiz</button>
+                    <button id="saveQuizBtn" class="setBottomBtns">Upload Quiz</button>
+                </div>
+                <br><br><br>
+            </div>
+        </div>
+        <div id="smallRightBar" class="boxesL">
+            <button class="toggleRightBtn"><i id="gear2" class="fa-solid fa-gear" style="color: #7c8188;"></i></button>
+        </div>
+    </main>
+    
 
 
     <script src="script.js"></script>
+    <script src="eQ.js"></script>
 </body>
