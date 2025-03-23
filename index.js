@@ -55,7 +55,7 @@ function startQuiz(type) {
     subBtnStatement = "submit";
     rightQuestions = 0;
     questionLeft.textContent = "0/" + questions.length;
-    fetch("http://localhost:8085/quizzes", {
+    fetch("https://quiz-serverjs.vercel.app/quizzes", {
         method: "GET",
         cache: "no-cache"
     })
